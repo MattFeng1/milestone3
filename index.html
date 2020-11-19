@@ -1,0 +1,78 @@
+<html>
+<head>
+	<title>LMmasks</title>
+	<link rel="stylesheet" href="pagestyle.css">
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+	<body style="background-color: #dbf6f3"></body>
+<style>
+		A {text-decoration: none;} 
+		img { border-style: solid;border-color: black;}
+</style>
+<body>
+	<h4 style="text-align:center; font-size:150%; font-family:verdana;"><span style="color: #f54245">Welcome to L & M Masks!</span><h4>
+	<h5 style="text-align:center; font-size:120%; font-family:verdana;"><span style="color: #f54245">Where you can browse through various different kinds of masks and watch educational videos on how to properly use them.</span></h5>
+	
+	<img src="mark.jpg" alt="logo" width="350" height="110" border="5" style="vertical-align:middle;margin:100px 760px">
+
+	 <h1 style="font-size:150%; font-family:verdana;"><a href="https://www.who.int/health-topics/coronavirus#tab=tab_1"> <span style="color: #6495ED">Latest News from WHO</span></a><h1>
+
+	<h2 style="font-size:146%; font-family:verdana;"><a href="https://www.youtube.com/watch?v=adB8RW4I3o4"> <span style="color: #FF7F50">Wear Masks Properly</span></a><h2>
+
+			<iframe width="550" height="345" src="https://www.youtube.com/embed/adB8RW4I3o4">
+			</iframe>
+	 	<br>
+	 <h3 style="font-size:130%; font-family:verdana;"><a href="shop.html"><span style="color: black">Shop</span></a><h3>	
+	 
+	 <button id = "find-me">Find the nearest COVID-19 testing area</button><br/>
+		<p id = "status"></p>
+		<a id = "map-link" target="_blank"></a>
+
+	<script type="text/javascript">
+	function geoFindMe() {
+
+  	const status = document.querySelector('#status');
+  	const mapLink = document.querySelector('#map-link');
+
+ 	 mapLink.href = '';
+  	mapLink.textContent = '';
+
+  	function success(position) {
+    	const latitude  = position.coords.latitude;
+    	const longitude = position.coords.longitude;
+
+    status.textContent = '';
+   		 mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+   		 mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+  }
+
+  	function error() {
+   		 status.textContent = 'Unable to retrieve your location';
+  }
+
+ 	 if(!navigator.geolocation) {
+    	status.textContent = 'Geolocation is not supported by your browser';
+  } else {
+   		status.textContent = 'Locating…';
+    	navigator.geolocation.getCurrentPosition(success, error);
+  }
+
+}
+		document.querySelector('#find-me').addEventListener('click', geoFindMe);
+	</script>
+		 
+	 	<div class="row">
+	 	<div class="column">
+	 		<img id=p1 src="surgical mask.jpg" alt="surgical mask" width="150" height="150" border="3" style="margin:0px 5px"><a href="https://www.amazon.com/s?k=surgical+mask&ref=nb_sb_noss"><figcaption><span style="color: black">Surgical mask</span></figcaption>
+	 	</div>
+	 	<div class="column">
+	 		<img src="N95.jpg" alt="N95 mask" width="150" height="150" border="3" style="margin:0px 5px"><a href="https://www.amazon.com/s?k=N95+mask&ref=nb_sb_noss"><figcaption><span style="color: black">N95 mask</span></figcaption>
+	 	</div>	
+	 	<div class="column">
+	 		<img src="cloth masks.jpg" alt="cloth mask" width="150" height="150" border="3" style="margin:0px 5px"><a href="https://www.amazon.com/s?k=cloth+mask&ref=nb_sb_noss"><figcaption><span style="color: black">Cloth mask</span></figcaption>	
+	 	</div>
+	 	</div>
+
+	 	
+</body>
